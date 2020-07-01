@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if !HEROKU:
+if not HEROKU:
     DATABASES = {
         'default': env.db()
     }
