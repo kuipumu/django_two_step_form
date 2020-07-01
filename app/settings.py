@@ -21,7 +21,9 @@ from django.utils.translation import gettext_lazy as _
 # Environ settings.
 env = environ.Env(
     DEBUG=(bool, False),
-    HEROKU=(bool, False)
+    LANGUAGE_CODE=(str, 'es'),
+    DJANGO_ADMINS=(list, 'John:john@admin.com,Jane:jane@admin.com'),
+    COMPANY_NAME=(str, 'ACME Inc.')
 )
 # Reading .env file
 environ.Env.read_env()
@@ -38,9 +40,6 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-
-# Boolean to set if is running under Heroku.
-HEROKU = env('HEROKU')
 
 ALLOWED_HOSTS = ['*']
 
