@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block main %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-4 py-4">
+			<h1 class="h2">{% trans "You where successfully logged out!." %}</h1>
+            <hr>
+			<a class="btn btn-primary"href="{% url 'home' %}">
+			    {% trans 'Home' %}
+			</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,458 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR kuipumu@cryptolab.net, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-01 13:03-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/settings.py:134
+msgid "Spanish"
+msgstr "Español"
+
+#: app/urls.py:14
+msgid "accounts/"
+msgstr "cuentas/"
+
+#: templates/navbar.html:15 templates/registration/logged_out.html:15
+#: templates/registration/password_reset_confirm.html:34
+#: templates/registration/password_reset_done.html:17
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/navbar.html:30
+msgid "Logout"
+msgstr "Salir"
+
+#: templates/navbar.html:31
+msgid "Profile"
+msgstr "Perfil"
+
+#: templates/navbar.html:32
+msgid "Company"
+msgstr "Compañia"
+
+#: templates/navbar.html:33
+msgid "Email"
+msgstr ""
+
+#: templates/navbar.html:34
+msgid "Password"
+msgstr "Contraseña"
+
+#: templates/navbar.html:40 user/views.py:88
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: templates/navbar.html:43
+#: templates/registration/password_reset_complete.html:16 user/views.py:100
+msgid "Login"
+msgstr "Iniciar"
+
+#: templates/registration/logged_out.html:12
+msgid "You where successfully logged out!."
+msgstr "¡Haz salido de la sesión exitosamente!."
+
+#: templates/registration/login.html:21
+#: templates/registration/password_change_form.html:20
+#: templates/registration/password_reset_confirm.html:21
+#: templates/registration/password_reset_form.html:20
+#: templates/registration/signup_company.html:57
+#: templates/user/company_update.html:43 templates/user/email_update.html:20
+#: templates/user/user_update.html:42
+msgid "Submit"
+msgstr "Enviar"
+
+#: templates/registration/login.html:23
+msgid "Forgot your password?"
+msgstr "¿Olvidaste tu contraseña?"
+
+#: templates/registration/password_change_form.html:12 user/views.py:289
+msgid "Change Password"
+msgstr "Cambiar contraseña"
+
+#: templates/registration/password_reset_complete.html:12 user/views.py:148
+msgid "Reset Password Complete"
+msgstr "Reinicio de contraseña completado"
+
+#: templates/registration/password_reset_complete.html:14
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Tu contraseña a sido creada, Ya puedes ir he iniciar sesión con ella."
+
+#: templates/registration/password_reset_confirm.html:13
+#: templates/registration/password_reset_confirm.html:30 user/views.py:136
+msgid "Reset Password Confirm"
+msgstr "Reinicio de contraseña confirmar"
+
+#: templates/registration/password_reset_confirm.html:15
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Por favor coloca tu nueva contraseña dos veces para que podamos verificar "
+"que la escribiste correctamente."
+
+#: templates/registration/password_reset_confirm.html:32
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+"El enlace para reiniciar la contraseña es invalido, posiblemente por que ya "
+"a sido tomada o ya a sido usada. Por favor solicita un nuevo reinicio de "
+"contraseña."
+
+#: templates/registration/password_reset_done.html:12 user/views.py:124
+msgid "Reset Password Done"
+msgstr "Reinicio de contraseña realizado"
+
+#: templates/registration/password_reset_done.html:14
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Te hemos enviado por correo las instrucciones para que crees tu contraseña, "
+"si existe una cuenta con el correo electornico que colocaste. Deberias de "
+"recibirlo pronto."
+
+#: templates/registration/password_reset_done.html:15
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Si no recibes el correo, asegurate que hayas colocado tu dirrección de "
+"correo con la que te registrarte, y verifica tu carpeta de spam."
+
+#: templates/registration/password_reset_email.html:7
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Estas recibiendo este correo por que haz solicitado reiniciar la contrasña "
+"para tu cuentade usuario en %(site_name)s."
+
+#: templates/registration/password_reset_email.html:9
+msgid "Please go to the following page and choose a new password:"
+msgstr "Por favor ve a la siguiente pagina y elige una nueva contraseña:"
+
+#: templates/registration/password_reset_email.html:13
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Tu nombre de usuario, en caso de que lo hayas olvidado:"
+
+#: templates/registration/password_reset_email.html:15
+msgid "Thanks for using our site!"
+msgstr "¡Gracias por utilizar nuestro sitio!."
+
+#: templates/registration/password_reset_email.html:17
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "El equipo de %(site_name)s"
+
+#: templates/registration/password_reset_form.html:12 user/views.py:112
+msgid "Reset Password"
+msgstr "Reiniciar contraseña"
+
+#: templates/registration/password_reset_form.html:14
+msgid ""
+"Forgotten your password? Enter your email address below, and we’ll email "
+"instructions for setting a new one."
+msgstr ""
+"¿Olvidaste tu contraseña?, coloca tu dirección de correo abajo y te "
+"enviaremos por correo las instrucciones para colocar una nueva."
+
+#: templates/registration/password_reset_subject.txt:2
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr "Contraseña enviada en %(site_name)s"
+
+#: templates/registration/signup_company.html:12
+msgid "Company Information"
+msgstr "Información de Compañia"
+
+#: templates/registration/signup_company.html:14
+#: templates/registration/signup_user.html:14
+msgid "Step"
+msgstr "Paso"
+
+#: templates/registration/signup_company.html:14
+#: templates/registration/signup_user.html:14
+msgid "of"
+msgstr "de"
+
+#: templates/registration/signup_company.html:59
+#: templates/registration/signup_user.html:18
+msgid "Previous Step"
+msgstr "Paso anterior"
+
+#: templates/registration/signup_user.html:12
+msgid "User Information"
+msgstr "Información de usuario"
+
+#: templates/registration/signup_user.html:17
+msgid "First Step"
+msgstr "Primer paso"
+
+#: templates/registration/signup_user.html:65
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/user/company_update.html:12 user/views.py:229
+msgid "Company Profile"
+msgstr "Perfil de compañia"
+
+#: templates/user/email_update.html:12 user/views.py:270
+msgid "Change Email"
+msgstr "Cambiar correo"
+
+#: templates/user/user_update.html:12 user/views.py:188
+msgid "User Profile"
+msgstr "Perfil de usuario"
+
+#: user/forms.py:64 user/forms.py:205
+msgid "Confim email address"
+msgstr "Confirmar dirección de correo"
+
+#: user/forms.py:65 user/forms.py:206
+msgid "Enter the same email address as before, for verification."
+msgstr ""
+"Repite la misma dirección de correo que colocaste arriba para verificar que "
+"sean iguales."
+
+#: user/forms.py:88 user/forms.py:226
+msgid "Confirmation email addres does not math with set email."
+msgstr ""
+"La dirrección de correo de confirmación no coincide con la dirrección de "
+"correo colocada."
+
+#: user/forms.py:100
+msgid "Phone number can't be the same mobile number."
+msgstr "El número de telefono no puede ser igual que el número celular."
+
+#: user/forms.py:103
+msgid "Mobile number can't be the same has phone number."
+msgstr "El número celular no puede ser el mismo que el número de telefono."
+
+#: user/managers.py:13
+msgid "The email of the user must be set."
+msgstr "El correo del usuario debe ser colocado."
+
+#: user/managers.py:15
+msgid "At least the first name of the user must be set."
+msgstr "Al menos, el primer nombre del usuario debe ser colocado."
+
+#: user/managers.py:31
+msgid "Superuser must have is_staff=True."
+msgstr "El superusuario debe tener is_staff=True."
+
+#: user/managers.py:33
+msgid "Superuser must have is_superuser=True."
+msgstr "El superusuario debe tener is_superuser=True."
+
+#: user/models.py:50
+msgid "id"
+msgstr "ID"
+
+#: user/models.py:58 user/models.py:130
+msgid "email address"
+msgstr "dirección de correo"
+
+#: user/models.py:62
+msgid "first name"
+msgstr "nombre"
+
+#: user/models.py:66
+msgid "last name"
+msgstr "apellido"
+
+#: user/models.py:70
+msgid "national ID type"
+msgstr "Tipo de cedula de identidad"
+
+#: user/models.py:82
+msgid "national ID"
+msgstr "cedula de identidad"
+
+#: user/models.py:87 user/models.py:91
+msgid "National ID must be in XXXXXXXXX format."
+msgstr "La cedula de identidad debe de estar en el formato XXXXXXXXX."
+
+#: user/models.py:95 user/models.py:160
+msgid "phone number"
+msgstr "número de telefono"
+
+#: user/models.py:99
+msgid "mobile number"
+msgstr "número celular"
+
+#: user/models.py:104
+msgid "date birth"
+msgstr "fecha de nacimiento"
+
+#: user/models.py:105
+msgid "Enter your birth date."
+msgstr "Coloca tu fecha de nacimiento."
+
+#: user/models.py:108
+msgid "security question"
+msgstr "pregunta de seguridad"
+
+#: user/models.py:109
+msgid "Set you security question."
+msgstr "Coloca tu pregunta de seguridad."
+
+#: user/models.py:113
+msgid "security answer"
+msgstr "Respuesta de seguridad."
+
+#: user/models.py:114
+msgid "Set the answer for your security question."
+msgstr "Coloca la respuesta de tu pregunta de seguridad."
+
+#: user/models.py:118
+msgid "photo"
+msgstr "foto"
+
+#: user/models.py:120
+msgid ""
+"Upload a user photo, the image must be in a resolution proportional to "
+"150x150."
+msgstr ""
+"Sube una foto de perfil, la resolución optima para la imagen es una  "
+"proporcional a 150x150 pixeles."
+
+#: user/models.py:125
+msgid "name"
+msgstr "nombre"
+
+#: user/models.py:134
+msgid "RIF ID type"
+msgstr "Tipo de RIF"
+
+#: user/models.py:147
+msgid "RIF ID"
+msgstr "RIF"
+
+#: user/models.py:152 user/models.py:156
+msgid "RIF ID must be in XXXXXXXX-X format."
+msgstr "EL RIF debe de estar en el formato XXXXXXXX-X."
+
+#: user/models.py:164
+msgid "address line 1"
+msgstr "linea de dirección 1"
+
+#: user/models.py:168
+msgid "address line 2"
+msgstr "linea de dirección 2"
+
+#: user/models.py:174
+msgid "city"
+msgstr "ciudad"
+
+#: user/models.py:178
+msgid "state"
+msgstr "estado"
+
+#: user/models.py:183
+msgid "postal code"
+msgstr "Codigo postal"
+
+#: user/models.py:187
+msgid "logo"
+msgstr "logo"
+
+#: user/models.py:189
+msgid ""
+"Upload a company logo, the image must be in a resolution proportional to "
+"250x150."
+msgstr ""
+"Sube el logo de la compañia, la resolución optima para la imagen es una  "
+"proporcional a 250x150 pixeles."
+
+#: user/models.py:194
+msgid "Staff"
+msgstr "Personal"
+
+#: user/models.py:198
+msgid "Active"
+msgstr "Activo"
+
+#: user/models.py:211
+msgid "user"
+msgstr "usuario"
+
+#: user/models.py:212
+msgid "users"
+msgstr "usuarios"
+
+#: user/urls.py:19
+msgid "signup/"
+msgstr "registrarse/"
+
+#: user/urls.py:25
+msgid "login/"
+msgstr "iniciar/"
+
+#: user/urls.py:32
+msgid "logout/"
+msgstr "salir/"
+
+#: user/urls.py:37
+msgid "reset/"
+msgstr "reiniciar/"
+
+#: user/urls.py:44
+msgid "reset/done/"
+msgstr "reiniciar/listo/"
+
+#: user/urls.py:49
+msgid "reset/<uidb64>/<token>/"
+msgstr "reiniciar/<uidb64>/<token>/"
+
+#: user/urls.py:54
+msgid "reset/complete/"
+msgstr "reiniciar/completado/"
+
+#: user/urls.py:59
+msgid "user/<uuid:pk>/"
+msgstr "usuario/<uuid:pk>/"
+
+#: user/urls.py:64
+msgid "company/<uuid:pk>/"
+msgstr "compañia/<uuid:pk>/"
+
+#: user/urls.py:69
+#, fuzzy
+#| msgid "user/<uuid:pk>/"
+msgid "email/<uuid:pk>/"
+msgstr "usuario/<uuid:pk>/"
+
+#: user/urls.py:74
+msgid "password/"
+msgstr "contraseña/"
+
+#: user/views.py:82
+msgid "User successfully created!. log in now."
+msgstr "¡Usuario exitosamente creado!."
+
+#: user/views.py:163 user/views.py:204 user/views.py:245
+msgid "Successfully updated!."
+msgstr "¡Exitosamente actualizado!."
+
+#: user/views.py:284
+msgid "Password successfully updated!."
+msgstr "¡Contraseña exitosamente acutalizada!."
+
+#~ msgid "Go Back"
+#~ msgstr "Volver"

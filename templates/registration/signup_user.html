@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load i18n static crispy_forms_tags %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block main %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8 my-4">
+            <h1 class="h2">{% trans 'User Information' %}</h1>
+            <hr>
+            <p>{% trans 'Step' %} {{ wizard.steps.step1 }} {% trans 'of' %} {{ wizard.steps.count }}</p>
+            {% if wizard.steps.prev %}
+            <div class="d-flex justify-content-between">
+                <button class="btn-primary" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% trans "First Step" %}</button>
+                <button class="btn-primary" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% trans "Previous Step" %}</button>
+            </div>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ wizard.management_form }}
+                    {% if wizard.form.forms %}
+                        {{ wizard.form.management_form }}
+                        {% for form in wizard.form.forms %}
+                            {{ form|as_crispy_errors }}
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                {{ form|crispy }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        {{ wizard.form|as_crispy_errors }}
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                            {{ form.email|as_crispy_field }}
+                            {{ form.email_confirm|as_crispy_field }}
+                            {{ form.password1|as_crispy_field }}
+                            {{ form.password2|as_crispy_field }}
+                            {{ form.security_question|as_crispy_field }}
+                            {{ form.security_answer|as_crispy_field }}
+                            </div>
+                            <div class="col-12 col-lg-6">
+                            {{ form.first_name|as_crispy_field }}
+                            {{ form.last_name|as_crispy_field }}
+                            <div class="form-row">
+                              <div class="form-group col-12 col-sm-3 col-md-3 col-lg-3 mb-0">
+                                {{ form.national_id_type|as_crispy_field }}
+                              </div>
+                              <div class="form-group col-12 col-sm-9 col-md-9 col-lg-9 mb-0">
+                                {{ form.national_id|as_crispy_field }}
+                              </div>
+                            </div>
+                            {{ form.phone_number|as_crispy_field }}
+                            {{ form.mobile_number|as_crispy_field }}
+                            {{ form.date_birth|as_crispy_field }}
+                            {{ form.photo|as_crispy_field }}
+                            </div>
+                        </div>
+                    {% endif %}
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <input class="btn btn-primary" type="submit" value="{% trans 'Next' %}"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

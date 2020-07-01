@@ -1,0 +1,21 @@
+$enable-responsive-font-sizes:                true;
+
+@font-face {
+  font-family: 'Sk-Modernist';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Sk-Modernist-Regular'), local('Sk-Modernist-Regular'), url("/assets/fonts/Sk-Modernist-Regular.otf") format('opentype');
+}
+
+$font-family-sans-serif: "Sk-Modernist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"!important;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+a:link {
+  text-decoration: none ;
+}
+
+.asteriskField {
+	@extend .text-danger, .ml-2;
+}

@@ -1,0 +1,16 @@
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!doctype html>
+<html class="h-100" lang="{{ LANGUAGE_CODE }}">
+  {% include "head.html" %}
+  <body class="d-flex flex-column h-100">
+    {% include "navbar.html" %}
+    <main class="flex-shrink-0">
+    {% block main %}
+    {% endblock %}
+    </main>
+    {% include "footer.html" %}
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

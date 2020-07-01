@@ -1,0 +1,48 @@
+{% load i18n static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-gradient-light">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img class="d-inline-block align-top mr-2" src="{% static 'img/icons/favicon-32x32.png' %}" width="30" height="30" alt="">
+      {{ company_name }}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarHeader">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">{% trans 'Home' %}</a>
+        </li>
+      </ul>
+      {% if user.is_authenticated %}
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item dropdown avatar">
+          <a class="nav-link dropdown-toggle text-dark p-0" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% if user.photo %}
+                    <img src="{{ user.photo.url }}" class="d-inline-block align-top rounded-circle  mr-2" width="30" height="30" alt="">
+                    {% else %}
+                    <i class="mr-1" data-feather="user"></i>
+                    {% endif %}
+              {{ user.first_name }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+            <a class="dropdown-item" href="{% url 'user_update' pk=user.id %}">{% trans 'Profile' %}</a>
+            <a class="dropdown-item" href="{% url 'company_update' pk=user.id %}">{% trans 'Company' %}</a>
+            <a class="dropdown-item" href="{% url 'email_update' pk=user.id %}">{% trans 'Email' %}</a>
+            <a class="dropdown-item" href="{% url 'password_update' %}">{% trans 'Password' %}</a>
+          </div>
+        </li>
+      </ul>
+      {% else %}
+      <a class="btn btn-secondary mr-2" href="{% url 'signup' %}">
+        {% trans 'Sign Up' %}
+      </a>
+      <a class="btn btn-primary" href="{% url 'login' %}">
+        {% trans 'Login' %}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
