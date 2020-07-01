@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import django_heroku
+import dj_database_url
 import os
 import environ
 from django.urls import reverse_lazy
@@ -19,11 +20,11 @@ from django.utils.translation import gettext_lazy as _
 
 # Environ settings.
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, False),
+    HEROKU=(bool, False)
 )
 # Reading .env file
-env = environ.Env()
-env.read_env(env.str('ENV_PATH', '.env'))
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,6 +38,9 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
+
+# Boolean to set if is running under Heroku.
+HEROKU = env('HEROKU')
 
 ALLOWED_HOSTS = ['*']
 
@@ -101,9 +105,13 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': env.db()
-}
+if HEROKU:
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+else:
+    DATABASES = {
+        'default': env.db()
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -210,4 +218,5 @@ COMPANY_NAME = env('COMPANY_NAME')
 
 # django-heroku settings.
 
-django_heroku.settings(locals())
+if HEROKU:
+    django_heroku.settings(locals())

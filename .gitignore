@@ -3,6 +3,7 @@
 *.pyc
 __pycache__/
 .env
+app/.env
 env
 node_modules
 public
