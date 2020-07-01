@@ -24,6 +24,7 @@ env = environ.Env(
     HEROKU=(bool, False),
     LANGUAGE_CODE=(str, 'es'),
     DJANGO_ADMINS=(list, 'John:john@admin.com,Jane:jane@admin.com'),
+    ALLOWED_HOSTS=(list, 'localhost'),
     COMPANY_NAME=(str, 'ACME Inc.')
 )
 # Reading .env file
@@ -42,8 +43,6 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 HEROKU = env('HEROKU')
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Admin users.
 
@@ -71,10 +70,9 @@ INSTALLED_APPS = [
     'user'
 ]
 
+ALLOWED_HOSTS = [env.list('ALLOWED_HOSTS')]
+
 if HEROKU:
-    ALLOWED_HOSTS + = [
-        '.herokuapp.com'
-    ]
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
