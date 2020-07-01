@@ -71,7 +71,6 @@ class CustomRegistrationView(
         user_data['password'] = user_data.pop('password1')
         del user_data['password2']
         del user_data['email_confirm']
-        del user_data['captcha']
         new_user = get_user_model().objects.create_user(
             **user_data
         )

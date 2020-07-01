@@ -120,8 +120,6 @@ class CustomSignUpUserForm(RegistrationForm):
 class CustomSignUpCompanyForm(ModelForm):
     """Second form step for sign up users."""
 
-    captcha = ReCaptchaField(widget=ReCaptchaV3)
-
     class Meta:
         model = CustomUser
         fields = company_fields
