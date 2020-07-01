@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import django_heroku
 import os
 import environ
 from django.urls import reverse_lazy
@@ -26,6 +27,7 @@ env.read_env(env.str('ENV_PATH', '.env'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -180,24 +182,32 @@ LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
-# Company settings.
+# django-storages settings.
 
-COMPANY_NAME = env('COMPANY_NAME')
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = env('DROPBOX_OAUTH2_TOKEN')
 
-# Crispy forms.
+# django-crispy-forms settings.
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
-# Phone number field.
+# django-phonenumber_field settings.
 
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION = env('PHONENUMBER_DEFAULT_REGION')
 
-# ReCaptcha
+# django-recaptcha settings
 
 if DEBUG:
     SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 else:
     RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
     RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
+
+# Company settings.
+
+COMPANY_NAME = env('COMPANY_NAME')
+
+# django-heroku settings.
+
+django_heroku.settings(locals())
