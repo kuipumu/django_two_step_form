@@ -21,7 +21,6 @@ from django.utils.translation import gettext_lazy as _
 # Environ settings.
 env = environ.Env(
     DEBUG=(bool, False),
-    HEROKU=(bool, False),
     LANGUAGE_CODE=(str, 'es'),
     DJANGO_ADMINS=(list, 'John:john@admin.com,Jane:jane@admin.com'),
     ALLOWED_HOSTS=(list, 'localhost'),
@@ -42,7 +41,40 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-HEROKU = env('HEROKU')
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s] ' +
+                       'pathname=%(pathname)s lineno=%(lineno)s ' +
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        }
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'testlogger': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        }
+    }
+}
 
 # Admin users.
 
