@@ -21,9 +21,10 @@ from django.utils.translation import gettext_lazy as _
 # Environ settings.
 env = environ.Env(
     DEBUG=(bool, False),
+    HEROKU=(bool, False),
     LANGUAGE_CODE=(str, 'es'),
     DJANGO_ADMINS=(list, 'John:john@admin.com,Jane:jane@admin.com'),
-    ALLOWED_HOSTS=(list, 'localhost'),
+    ALLOWED_HOSTS=(list, '127.0.0.1,localhost'),
     COMPANY_NAME=(str, 'ACME Inc.')
 )
 # Reading .env file
@@ -32,6 +33,7 @@ environ.Env.read_env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+HEROKU = env('HEROKU')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -102,7 +104,7 @@ INSTALLED_APPS = [
     'user'
 ]
 
-ALLOWED_HOSTS = ['flannel-toque-54349.herokuapp.com']
+ALLOWED_HOSTS = [x for x in env.list('ALLOWED_HOSTS')]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -248,4 +250,5 @@ COMPANY_NAME = env('COMPANY_NAME')
 
 # django-heroku settings.
 
-django_heroku.settings(locals(), logging=False)
+if HEROKU:
+    django_heroku.settings(locals(), logging=False)
