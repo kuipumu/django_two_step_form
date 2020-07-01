@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import django_heroku
-import dj_database_url
 import os
 import environ
+import django_heroku
+import dj_database_url
 from django.urls import reverse_lazy
 from django.core.management.utils import get_random_secret_key
 from django.utils.translation import gettext_lazy as _
@@ -105,13 +105,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if HEROKU:
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-else:
-    DATABASES = {
-        'default': env.db()
-    }
+DATABASES = {
+    'default': env.db()
+}
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -218,5 +217,4 @@ COMPANY_NAME = env('COMPANY_NAME')
 
 # django-heroku settings.
 
-if HEROKU:
-    django_heroku.settings(locals())
+django_heroku.settings(locals())
