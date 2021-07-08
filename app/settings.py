@@ -11,11 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import environ
+
 import django_heroku
-import dj_database_url
+import environ
 from django.urls import reverse_lazy
-from django.core.management.utils import get_random_secret_key
 from django.utils.translation import gettext_lazy as _
 
 # Environ settings.
@@ -23,20 +22,18 @@ env = environ.Env(
     DEBUG=(bool, False),
     HEROKU=(bool, False),
     LANGUAGE_CODE=(str, 'es'),
-    DJANGO_ADMINS=(list, 'John:john@admin.com,Jane:jane@admin.com'),
+    DJANGO_ADMINS=(list, 'John:john@admin.com'),
     ALLOWED_HOSTS=(list, '127.0.0.1,localhost'),
-    COMPANY_NAME=(str, 'ACME Inc.')
+    COMPANY_NAME=(str, 'ACME Inc.'),
+    DROPBOX=(bool, False)
 )
 # Reading .env file
 environ.Env.read_env()
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Build paths inside the project
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 HEROKU = env('HEROKU')
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
@@ -168,11 +165,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
+# Default Auto Field
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 # Provide a lists of languages for the site.
 LANGUAGES = (
+    ('en', _('English')),
     ('es', _('Spanish')),
 )
 
@@ -224,8 +225,10 @@ LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 # django-storages settings.
 
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = env('DROPBOX_OAUTH2_TOKEN')
+DROPBOX = env('DROPBOX')
+if DROPBOX:
+    DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+    DROPBOX_OAUTH2_TOKEN = env('DROPBOX_OAUTH2_TOKEN')
 
 # django-crispy-forms settings.
 
